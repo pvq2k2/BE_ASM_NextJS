@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import productRouter from './routers/products';
 const app = express();
 
 
@@ -11,6 +12,8 @@ app.use(cors());
 app.get('/', (req, res) => {
     res.send("<h1>Home Page</h1>");
 });
+
+app.use('/api', productRouter);
 
 
 
