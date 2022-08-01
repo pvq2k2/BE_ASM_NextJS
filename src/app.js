@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import productRouter from './routers/products';
 import authRouter from './routers/auth';
+import categoryRouter from './routers/categories';
 const app = express();
 
 
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
 
 app.use('/api', productRouter);
 app.use('/api', authRouter);
+app.use('/api', categoryRouter);
 
 
 mongoose.connect("mongodb://localhost:27017/nodejs")
