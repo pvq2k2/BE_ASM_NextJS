@@ -19,9 +19,16 @@ const productSchema = mongoose.Schema({
     img: {
         type: String,
     },
+    description: {
+        type: String,
+    },
     quantity: {
         type: Number,
         default: 1
+    },
+    category: {
+        type: ObjectId,
+        ref: 'Category',
     },
 }, { timestamps: true })
 
