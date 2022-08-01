@@ -20,7 +20,7 @@ app.use('/api', authRouter);
 app.use('/api', categoryRouter);
 
 
-mongoose.connect("mongodb://localhost:27017/nodejs")
+mongoose.connect("mongodb://localhost:27017/nextjs")
     .then(() => console.log("Connect db thanh cong"))
 // Content
 const PORT = 8000
