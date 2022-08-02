@@ -4,6 +4,7 @@ import cors from 'cors';
 import productRouter from './routers/products';
 import authRouter from './routers/auth';
 import categoryRouter from './routers/categories';
+import userRouter from './routers/user';
 const app = express();
 
 
@@ -18,7 +19,7 @@ app.get('/', (req, res) => {
 app.use('/api', productRouter);
 app.use('/api', authRouter);
 app.use('/api', categoryRouter);
-
+app.use('/api', userRouter);
 
 mongoose.connect("mongodb://localhost:27017/nextjs")
     .then(() => console.log("Connect db thanh cong"))
