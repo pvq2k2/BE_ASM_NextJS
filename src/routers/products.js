@@ -1,10 +1,9 @@
 import { Router } from 'express';
-import { create, get, list, remove, update, getViaSlug } from '../controllers/products';
+import { create, get, list, remove, update} from '../controllers/products';
 
 const router = Router();
 
 router.get('/product', list);
-router.get('/product/:slug', getViaSlug);
 router.get('/product/:id', get);
 router.post('/product', create);
 router.delete("/product/:id", remove);
