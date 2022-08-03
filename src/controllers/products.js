@@ -2,12 +2,13 @@ import Product from '../models/products';
 import slugify from "slugify";
 
 export const list = async (req, res) => {
-    const limitNumber = 20;
-    const limit = req.query.limit ? +req.query.limit : limitNumber;
-    const sortBy = req.query.sortBy ? req.query.sortBy : '_id';
-    const order = req.query.order ? req.query.order : 'desc';
+//     const limitNumber = 20;
+//     const limit = req.query.limit ? +req.query.limit : limitNumber;
+//     const sortBy = req.query.sortBy ? req.query.sortBy : '_id';
+//     const order = req.query.order ? req.query.order : 'desc';
     try {
-        const products = await Product.find().limit(limit).exec();
+//         const products = await Product.find().limit(limit).exec();
+        const products = await Product.find().exec();
         res.json(products);
     }
     catch (error) {
@@ -23,17 +24,6 @@ export const get = async (req, res) => {
     } catch (error) {
         res.status(400).json({
             message: "Tìm sản phẩm không thành công"
-        })
-    }
-}
-export const getViaSlug = async (req, res) => {
-    try {
-        const products = await Product.findOne({slug: req.params.slug}).exec();
-        console.log(Product.findOne({slug: req.params.slug}));
-        res.json(products);    
-    } catch (error) {
-        res.status(400).json({
-            message: "Đọc sản phẩm không thành công"
         })
     }
 }
