@@ -1,6 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import productRouter from './routers/products';
+import authRouter from './routers/auth';
+import categoryRouter from './routers/categories';
+import userRouter from './routers/user';
+import slideRouter from './routers/slide';
+import routerCart from './routers/cart';
+
 const app = express();
 
 
@@ -12,9 +19,14 @@ app.get('/', (req, res) => {
     res.send("<h1>Home Page</h1>");
 });
 
+app.use('/api', productRouter);
+app.use('/api', authRouter);
+app.use('/api', categoryRouter);
+app.use('/api', userRouter);
+app.use('/api', slideRouter);
+app.use('/api', routerCart);
 
-
-mongoose.connect("mongodb://localhost:27017/nodejs")
+mongoose.connect("mongodb://localhost:27017/nextjs")
     .then(() => console.log("Connect db thanh cong"))
 // Content
 const PORT = 8000
