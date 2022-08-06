@@ -2,7 +2,12 @@ import mongoose, { Schema } from 'mongoose';
 import { createHmac } from "crypto";
 import { v4 as uuidv4 } from "uuid";
 const userSchema = new Schema({
-    name: {
+    firstName: {
+        type: String,
+        requied: true,
+        minLength: 10
+    },
+    lastName: {
         type: String,
         required: true,
         maxLength: 30
