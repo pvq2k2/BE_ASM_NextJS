@@ -4,8 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const userSchema = new Schema({
     firstName: {
         type: String,
-        requied: true,
-        minLength: 10
+        requied: true
     },
     lastName: {
         type: String,
