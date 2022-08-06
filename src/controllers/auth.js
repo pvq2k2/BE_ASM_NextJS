@@ -1,7 +1,7 @@
 import User from '../models/user';
 export const signup = async (req, res) => {
     try {
-        const { name, email, password, avatar } = req.body; 
+        const { firstName, lastName, email, password, avatar } = req.body; 
         const exitsUser = await User.findOne({email}).exec();
         if (exitsUser) {
             res.json({
@@ -9,11 +9,12 @@ export const signup = async (req, res) => {
             })
         }
         
-        const user = await new User({name, email, password, avatar}).save();
+        const user = await new User({firstName, lastName, email, password, avatar}).save();
         res.json({
             user: {
                 _id: user._id,
-                name: user.name,
+                firstName: user.firstName,
+                lastName: user.lastName,
                 email: user.email,
                 avatar: user.avatar
             }
@@ -41,7 +42,8 @@ export const signin = async (req, res) => {
         user: {
             _id: user._id,
             email: user.email,
-            name: user.name,
+            firstName: user.firstName,
+            lastName: user.lastName,
             role: user.role,
             avatar: user.avatar
         }
