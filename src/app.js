@@ -26,10 +26,12 @@ app.use('/api', userRouter);
 app.use('/api', slideRouter);
 app.use('/api', routerCart);
 
-mongoose.connect("mongodb://localhost:27017/nextjs")
+const uri = "mongodb+srv://quyetpvph15476:y04RVrUcTxl2uUsA@cluster0.pbgeak7.mongodb.net/nextjs?retryWrites=true&w=majority";
+const db = uri || "mongodb://localhost:27017/nextjs";
+mongoose.connect(db)
     .then(() => console.log("Connect db thanh cong"))
 // Content
-const PORT = 8000
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
     console.log(`Server running port ${PORT}`);
 })
