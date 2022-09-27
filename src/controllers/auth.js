@@ -29,12 +29,12 @@ export const signin = async (req, res) => {
     const {email, password } = req.body;
     const user = await User.findOne({email}).exec();
     if (!user) {
-        res.json({
+        return res.json({
             message: "User không tồn tại"
         })
     }
     if (!user.authenticate(password)) {
-        res.json({
+        return res.json({
             message: "Mật khẩu không đúng"
         })
     }
